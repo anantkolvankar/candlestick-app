@@ -1,0 +1,37 @@
+
+.mini-font {
+  font-size: 14px;
+}
+.orange{
+  color: rgba(255, 144, 0, 1) !important;
+}
+.red{
+  color: #e8514e;
+}
+.grey{
+  color: grey;
+}
+.screenshot{
+  color: white;
+}
+.screenshot:hover{
+  color: white;
+}
+.market-depth .table td, .table th {
+    padding-left: 0.15rem !important;
+    padding-right: 0.15rem !important;
+  }
+.active-nav{
+  border-bottom: 2px solid rgba(255, 144, 0, 1);
+}
+.active-nav:hover{
+  border-bottom: 2px solid rgba(255, 144, 0, 1);
+}
+a.nav-link.grey:hover{
+  color: rgba(255, 144, 0, 1);
+  cursor: pointer;
+}
+a.nav-link.:active{
+  color: rgba(255, 144, 0, 1);
+  cursor: pointer;
+}

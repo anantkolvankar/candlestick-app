@@ -1,79 +1,111 @@
 <div class="container">
 
     <div class="row">
-      <div class=" col-md-8">
-        candle stick
-      </div>
-      <div class="col-md-4">
-        <h5>Market Depth</h5>
-        <table class="table table-bordered text-center">
-          <thead>
-            <tr class="text-center">
-              <th scope="col" colspan="2">Buy</th>
-              <th scope="col" colspan="2">Sell</th>
+      <div class="col-md-4" >
+        <h4 class="orange">BTC_USDT</h4>
+        <span >
+                 <span>O<span id="open"> </span></span>
+        <span> H<span id="high"> </span></span>
+        <span> L<span id="low"> </span></span>
+        <span> C<span id="close"> </span></span>
+      </span>
 
-            </tr>
+        </div>
+        <div class="col-md-4">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link " [ngClass]="currentInterval == '1m' ? 'orange' : 'grey'" (click)="changeInterval('1m')">1m</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " [ngClass]="currentInterval == '15m' ? 'orange' : 'grey'" (click)="changeInterval('15m')">15m</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " [ngClass]="currentInterval == '1h' ? 'orange' : 'grey'" (click)="changeInterval('1h')">1h</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-center">
+        <a class="mt-2 btn btn-danger screenshot" (click)="takeScreenshot()" #downloadLink> <i class="fa fa-camera" aria-hidden="true"></i></a>
+
+        <button type="button" class="ml-2 mt-2 btn btn-danger"><i class="fa fa-download" aria-hidden="true"></i></button>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-8" id="candlestick-chart">
+      </div>
+      <div class="col-md-4 text-center">
+        <h5 class="orange">Market Depth</h5>
+        <div class="table-responsive market-depth">
+          <table class=" table table-bordered text-center mini-font">
+            <thead>
+              <tr class="text-center">
+                <th scope="col" colspan="2">Buy</th>
+                <th scope="col" colspan="2">Sell</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+              </tr>
+              <tr>
+                <td scope="row">11570.67000000</td>
+                <td>0.000871</td>
+                <td>13900.00000000</td>
+                <td>0.000871</td>
+              </tr>
+              <tr>
+                <td scope="row">11570.67000000</td>
+                <td>0.000871</td>
+                <td>13900.00000000</td>
+                <td>0.000871</td>
+              </tr>
+              <tr>
+                <td scope="row">11570.67000000</td>
+                <td>0.000871</td>
+                <td>13900.00000000</td>
+                <td>0.000871</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <h5 class="orange">Trade History</h5>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center mini-font">
+          <thead>
+          <tr>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Market Maker</th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-            </tr>
-            <tr>
-              <td scope="row">11570.67000000</td>
-              <td>0.000871</td>
-              <td>13900.00000000</td>
-              <td>0.000871</td>
-            </tr>
-            <tr>
-              <td scope="row">11570.67000000</td>
-              <td>0.000871</td>
-              <td>13900.00000000</td>
-              <td>0.000871</td>
-            </tr>
-            <tr>
-              <td scope="row">11570.67000000</td>
-              <td>0.000871</td>
-              <td>13900.00000000</td>
-              <td>0.000871</td>
-            </tr>
+          <tr>
+            <td>1804</td>
+            <td>0.00000154</td>
+            <td class="text-center orange"><fa name="check-circle"></fa>
+              <!-- <fa name="check-square" animation="spin"></fa>
+              <i class="fa fa-thumbs-up"></i> -->
+            </td>
+          </tr>
+          <tr>
+            <td>1804</td>
+            <td>0.00000154</td>
+            <td class="text-center red"><fa name="times-circle"></fa>
+            </td>
+          </tr>
+          <tr>
+            <td>1804</td>
+            <td>0.00000154</td>
+            <td class="text-center orange"><fa name="check-circle"></fa>
+            </td>
+          </tr>
           </tbody>
-        </table>
-      <h5>Trades</h5>
-      <table class="table table-bordered text-center">
-        <thead>
-        <tr>
-          <th scope="col">Price</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Market Maker</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>1804</td>
-          <th>0.00000154</th>
-          <td class="text-center"><fa name="check-circle"></fa>
-            <!-- <fa name="check-square" animation="spin"></fa>
-            <i class="fa fa-thumbs-up"></i> -->
-          </td>
-        </tr>
-        <tr>
-          <td>1804</td>
-          <th>0.00000154</th>
-          <td class="text-center"><fa name="times-circle"></fa>
-          </td>
-        </tr>
-        <tr>
-          <td>1804</td>
-          <th>0.00000154</th>
-          <td class="text-center"><fa name="check-circle"></fa>
-          </td>
-        </tr>
-        </tbody>
-       </table>
+         </table>
+      </div>
       </div>
     </div>
-
-</div>
+  </div>

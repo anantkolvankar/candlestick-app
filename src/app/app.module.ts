@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
+import { FormsModule } from '@angular/forms';  //<<<< import it here
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +19,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    HttpClientModule,
+    AngularFontAwesomeModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
