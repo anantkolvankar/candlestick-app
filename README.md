@@ -1,7 +1,19 @@
 # CandlestickApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Candlestick application is an angular 7 application which shows candlestick charts using tradingview library.
 
+
+Backend: [candlestick-app-backend](https://github.com/anantkolvankar/candlestick-app-backend)
+
+## Demo
+![](screenshots/candlestick-app.gif)
+
+## Setup 
+```sh
+$ git clone https://github.com/anantkolvankar/candlestick-app.git
+$ cd candlestick-app
+$ npm install
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
