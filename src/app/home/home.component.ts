@@ -3,6 +3,7 @@ import { createChart } from 'lightweight-charts';
 import { ChartDataService } from '../services/chart-data.service';
 import { SharedService } from '../services/shared.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ExcelService } from '../services/excel.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class HomeComponent implements OnInit {
   lineSeries:any;
   chart:any;
+  chartData:any;
   currentInterval='1m';
   currentPair='B-BTC_USDT';
   chartConfig = {
@@ -31,10 +33,30 @@ export class HomeComponent implements OnInit {
     };
 
 message:string;
+
+exportCSV(){
+  try{
+    var dataToExport_arr = new Array();
+      for(let record of this.chartData){
+        let row_ = {};
+        row_['Time'] =record.time;
+        row_['Open'] = record.open;
+        row_['High'] = record.high;
+        row_['Low'] = record.low;
+        row_['Close'] = record.close;
+        dataToExport_arr.push(row_);
+      }
+      var fileName = this.currentPair+"_"+this.currentInterval;
+      this.excelService.exportAsExcelFile(dataToExport_arr, fileName);
+  }catch(e){
+    alert("Exception in exporting : "+e)
+  }
+}
   constructor(
     private chartDataService: ChartDataService,
     private sharedService: SharedService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private excelService: ExcelService
 
   ) { }
 
@@ -94,7 +116,7 @@ message:string;
 
         this.lineSeries.setData(candledata);
         this.spinner.hide("chartSp");
-
+        this.chartData = candledata;
       },
       error => {
         console.log(error);
