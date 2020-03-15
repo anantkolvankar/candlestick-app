@@ -1,26 +1,35 @@
-<h5 class="orange">Market Depth</h5>
-<div class="table-responsive market-depth">
-  <table class=" table table-bordered text-center mini-font">
-    <thead>
-      <tr class="text-center  bg-grey">
-        <th scope="col" colspan="2">Buy</th>
-        <th scope="col" colspan="2">Sell</th>
+<div class="row">
+  <div class="col-md-12">
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
-      </tr>
-      <tr  *ngFor="let orderbookDetail of orderBookDetails;">
-        <td>{{orderbookDetail.buy_p}}</td>
-        <td>{{orderbookDetail.buy_q}}</td>
-        <td>{{orderbookDetail.sell_p}}</td>
-        <td>{{orderbookDetail.sell_q}}</td>
-      </tr>
-    </tbody>
-  </table>
+    <h5 class="orange">Market Depth</h5>
+    <div class="table-responsive market-depth">
+      <table class=" table table-bordered text-center mini-font">
+        <thead>
+          <tr class="text-center  bg-grey">
+            <th scope="col" colspan="2">Buy</th>
+            <th scope="col" colspan="2">Sell</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+          </tr>
+          <tr  *ngFor="let orderbookDetail of orderBookDetails;">
+            <td>{{orderbookDetail.buy_p}}</td>
+            <td>{{orderbookDetail.buy_q}}</td>
+            <td>{{orderbookDetail.sell_p}}</td>
+            <td>{{orderbookDetail.sell_q}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <ngx-spinner [fullScreen]="false" name="orderBookSp" type="ball-clip-rotate-multiple" size="medium">
+            </ngx-spinner>
+    </div>
+
+</div>
+
 </div>

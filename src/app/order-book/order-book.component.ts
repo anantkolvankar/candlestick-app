@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChartDataService } from '../services/chart-data.service';
 import { SharedService } from '../services/shared.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-order-book',
   templateUrl: './order-book.component.html',
@@ -15,7 +15,8 @@ export class OrderBookComponent implements OnInit {
   orderBookDetails:any;
   constructor(
     private chartDataService: ChartDataService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private spinner: NgxSpinnerService
 
   ) { }
 
@@ -23,6 +24,7 @@ export class OrderBookComponent implements OnInit {
     this.sharedService.sharedMessage.subscribe(message =>  {
       this.pair = message;
 
+      this.spinner.show("orderBookSp");
 
     this.chartDataService.getOrderBook(this.pair).subscribe(
       data => {
@@ -36,6 +38,7 @@ export class OrderBookComponent implements OnInit {
           }
         }.bind(this));
         this.orderBookDetails = orderBookDetails;
+        this.spinner.hide("orderBookSp");
       },
       error => {
         console.log(error);

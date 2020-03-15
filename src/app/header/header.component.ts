@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   BM: "BitMEX"};
   selectedItem(item){
      this.sharedService.nextMessage(item.item.pair);
-      console.log(item);
   }
   search = (text$: Observable<string>) =>
     text$.pipe(

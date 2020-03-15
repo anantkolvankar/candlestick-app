@@ -1,3 +1,7 @@
+<div class="row">
+  <div class="col-md-12">
+
+
 <h5 class="orange">Trade History</h5>
 
 <div class="wrap mini-font">
@@ -16,5 +20,12 @@
             <td class="text-center" [ngClass]="sellAskValue.m == true? 'orange' : 'red'"><fa name="{{sellAskValue.m ==true? 'check' : 'times'}}-circle"></fa>
           </tr>
     </table>
+
+        <ngx-spinner [fullScreen]="false" name="tradeHistorySp" type="ball-clip-rotate-multiple" size="medium">
+              </ngx-spinner>
     </div>
+
+</div>
+
+</div>
 </div>

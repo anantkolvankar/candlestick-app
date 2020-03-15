@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { createChart } from 'lightweight-charts';
 import { ChartDataService } from '../services/chart-data.service';
 import { SharedService } from '../services/shared.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -32,7 +33,8 @@ export class HomeComponent implements OnInit {
 message:string;
   constructor(
     private chartDataService: ChartDataService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private spinner: NgxSpinnerService
 
   ) { }
 
@@ -53,7 +55,6 @@ message:string;
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('downloadLink') downloadLink: ElementRef;
   takeScreenshot(){
-    console.log('takeScreenshot');
     var date = new Date();
     this.downloadLink.nativeElement.href = this.chart.takeScreenshot().toDataURL('image/png').replace("image/png", "image/octet-stream");
     this.downloadLink.nativeElement.download = this.currentPair+'_'+this.currentInterval+'_'+date.getDate().toString()+'_'+date.getMonth().toString()+'_'+date.getFullYear().toString()+'_'+'candlestick.png';
@@ -79,6 +80,8 @@ message:string;
   }
 
   updateChartData(pair,interval){
+    this.spinner.show("chartSp");
+
     this.chartDataService.getCandelStickData(pair,interval).subscribe(
       data => {
         var candledata=[];
@@ -90,6 +93,8 @@ message:string;
         })
 
         this.lineSeries.setData(candledata);
+        this.spinner.hide("chartSp");
+
       },
       error => {
         console.log(error);
@@ -99,7 +104,7 @@ message:string;
 
   changeInterval(interval){
     this.currentInterval=interval;
-    this.updateChartData(this.currentPair,interval)
+    this.updateChartData(this.currentPair,interval);
   }
 
 }

@@ -14,6 +14,9 @@ import { OrderBookComponent } from './order-book/order-book.component';
 import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { HeaderComponent } from './header/header.component';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +31,10 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     AngularFontAwesomeModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

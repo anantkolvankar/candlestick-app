@@ -3,12 +3,7 @@
     <div class="row">
       <div class="col-md-4" >
         <h4 class="orange">{{this.currentPair}}</h4>
-        <span >
-                 <span>O<span id="open"> </span></span>
-        <span> H<span id="high"> </span></span>
-        <span> L<span id="low"> </span></span>
-        <span> C<span id="close"> </span></span>
-      </span>
+
 
         </div>
         <div class="col-md-4">
@@ -31,7 +26,21 @@
       </div>
   </div>
   <div class="row">
+    <div class="col-md-12">
+      <span >
+               <span>O<span id="open"> </span></span>
+      <span> H<span id="high"> </span></span>
+      <span> L<span id="low"> </span></span>
+      <span> C<span id="close"> </span></span>
+    </span>
+
+    </div>
+  </div>
+  <div class="row">
       <div class="col-md-8 candlestick-chart-container" id="candlestick-chart">
+
+        <ngx-spinner [fullScreen]="false" name="chartSp" type="ball-clip-rotate-multiple" size="large">
+              </ngx-spinner>
       </div>
       <div class="col-md-4 text-center">
         <app-order-book [pair]="this.currentPair"></app-order-book>
