@@ -1,0 +1,27 @@
+
+.inner_table {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: none;
+}
+
+.wrap {
+    width: 100%;
+}
+
+.wrap table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr td {
+    border: 1px solid #eee;
+    width: 100px;
+    word-wrap: break-word;
+}
+
+table.head tr td {
+    background: #eee;
+    padding: .75rem;
+    font-weight: bold;
+}

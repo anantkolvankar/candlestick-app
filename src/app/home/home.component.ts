@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { createChart } from 'lightweight-charts';
 import { ChartDataService } from '../services/chart-data.service';
+import { SharedService } from '../services/shared.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
       },
       localization: {
            locale: 'cn-CN',
-      }
+      },
     }
   lineSeriesConfig=  {
         upColor: 'rgba(255, 144, 0, 1)',  wickDownColor: '#e8514e',
@@ -28,9 +29,11 @@ export class HomeComponent implements OnInit {
         borderUpColor: 'rgba(255, 144, 0, 1)'
     };
 
-
+message:string;
   constructor(
-    private chartDataService: ChartDataService
+    private chartDataService: ChartDataService,
+    private sharedService: SharedService
+
   ) { }
 
   ngOnInit() {
@@ -38,16 +41,23 @@ export class HomeComponent implements OnInit {
     this.lineSeries = this.chart.addCandlestickSeries(this.lineSeriesConfig);
     this.updateChartData(this.currentPair,this.currentInterval);
     this.updateChartCrosshairMovement();
+    this.sharedService.sharedMessage.subscribe(message =>  {
+      this.currentPair = message;
+      this.updateChartData(this.currentPair,this.currentInterval);
+
+    })
+
   }
 
   @ViewChild('screen') screen: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('downloadLink') downloadLink: ElementRef;
   takeScreenshot(){
+    console.log('takeScreenshot');
     var date = new Date();
     this.downloadLink.nativeElement.href = this.chart.takeScreenshot().toDataURL('image/png').replace("image/png", "image/octet-stream");
     this.downloadLink.nativeElement.download = this.currentPair+'_'+this.currentInterval+'_'+date.getDate().toString()+'_'+date.getMonth().toString()+'_'+date.getFullYear().toString()+'_'+'candlestick.png';
-    this.downloadLink.nativeElement.click();
+  //  this.downloadLink.nativeElement.click();
   }
 
   updateChartCrosshairMovement(){

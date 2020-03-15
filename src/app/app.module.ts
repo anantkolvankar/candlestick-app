@@ -10,11 +10,17 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule } from '@angular/forms';  //<<<< import it here
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { OrderBookComponent } from './order-book/order-book.component';
+import { TradeHistoryComponent } from './trade-history/trade-history.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    OrderBookComponent,
+    TradeHistoryComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

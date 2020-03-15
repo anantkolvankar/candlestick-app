@@ -1,22 +1,3 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand orange" href="/home"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <ng-template #rt let-r="result" let-t="term">
-    <div class="dropdown-orange">
-      <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
-
-    </div>
-      </ng-template>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav offset-md-3">
-      <li class="nav-item dropdown">
-        <input class="form-control mx-md-4" type="search" [resultTemplate]="rt"
-  [inputFormatter]="formatter" [(ngModel)]="model" [ngbTypeahead]="search" placeholder="Search Market eg:-BTC_USDT" aria-label="Search">
-      </li>
-    </ul>
-  </div>
-</nav>
+<app-header></app-header>
 <router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+<h5 class="orange">Trade History</h5>
+
+<div class="wrap mini-font">
+    <table class="head">
+        <tr>
+          <td scope="col" colspan="2">Price</td>
+          <td scope="col" colspan="2">Quantity</td>
+          <td scope="col" colspan="2">Market Maker</td>
+        </tr>
+    </table>
+    <div class="inner_table">
+        <table>
+          <tr  *ngFor="let sellAskValue of tradeHistory;">
+            <td>{{sellAskValue.p}} </td>
+            <td>{{sellAskValue.q}} </td>
+            <td class="text-center" [ngClass]="sellAskValue.m == true? 'orange' : 'red'"><fa name="{{sellAskValue.m ==true? 'check' : 'times'}}-circle"></fa>
+          </tr>
+    </table>
+    </div>
+</div>

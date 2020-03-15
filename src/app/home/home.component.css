@@ -1,12 +1,5 @@
-
-.mini-font {
-  font-size: 14px;
-}
-.orange{
-  color: rgba(255, 144, 0, 1) !important;
-}
-.red{
-  color: #e8514e;
+.candlestick-chart-container{
+  height: 525px;
 }
 .grey{
   color: grey;
@@ -17,10 +10,8 @@
 .screenshot:hover{
   color: white;
 }
-.market-depth .table td, .table th {
-    padding-left: 0.15rem !important;
-    padding-right: 0.15rem !important;
-  }
+
+
 .active-nav{
   border-bottom: 2px solid rgba(255, 144, 0, 1);
 }

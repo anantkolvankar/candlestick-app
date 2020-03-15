@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+.red{
+  color: #e8514e;
+}
+.orange{
+  color: rgba(255, 144, 0, 1) !important;
+}
+.mini-font {
+  font-size: 12px;
+}
